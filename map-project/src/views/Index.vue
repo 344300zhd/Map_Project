@@ -30,7 +30,7 @@ export default {
     }
   },
   created(){
-    this.mapType = this.mapTypeList[0]
+    this.mapType = this.mapTypeList[3]
   },
   methods:{
     changeMapType(){
@@ -51,9 +51,9 @@ export default {
   .mapBox{
     width: 800px;
     height: 500px;
-    border-radius: 50%;
     overflow: hidden;
     margin: 100px auto;
+    opacity: 0.8;
   }
 }
 </style>
