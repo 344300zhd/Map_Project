@@ -12,6 +12,7 @@ export default {
     type: {
       type: String,
       default: "mapbox://styles/mapbox/navigation-night-v1",
+      language: false
     },
   },
   watch: {
@@ -26,7 +27,10 @@ export default {
       // access token
       mapbox.accessToken = "pk.eyJ1Ijoiem91aGFvZG9uZyIsImEiOiJjbDFid3ZzdGEwMXk4M2NsZ3UybTc1YzhiIn0.2yE99uLb5fsqKCZpsZk8TA";
       // 英文标注转换为中文   
-      mapbox.setRTLTextPlugin("https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.1.0/mapbox-gl-rtl-text.js");
+      if(!this.language){
+        this.language = true;
+        mapbox.setRTLTextPlugin("https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.1.0/mapbox-gl-rtl-text.js");
+      }
       const map = new mapbox.Map({
         container: "mapBox",
         style: this.type,
